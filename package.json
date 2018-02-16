@@ -4,7 +4,11 @@
   "description": "Intro to using TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf lib",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "lint": "tslint -t stylish --project \"tsconfig.json\"",
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/ShepherdJerred-homework/typescript-demo/issues"
   },
-  "homepage": "https://github.com/ShepherdJerred-homework/typescript-demo#readme"
+  "homepage": "https://github.com/ShepherdJerred-homework/typescript-demo#readme",
+  "dependencies": {
+    "@types/node": "^9.4.6",
+    "tslib": "^1.9.0",
+    "tsutils": "^2.21.1",
+    "typescript": "^2.7.2"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "tslint": "^5.9.1",
+    "tslint-config-semistandard": "^7.0.0",
+  }
 }
