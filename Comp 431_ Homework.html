@@ -1,0 +1,253 @@
+
+<!-- saved from url=(0061)https://cs.harding.edu/gfoust/classes/comp431/homework08.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="./Comp 431_ Homework_files/standard.css" type="text/css">
+    <title>Comp 431: Homework</title>
+    <style>
+      .console { font-family: "Lucida Console",Monaco,monospace; }
+      .type { color: #0cc; }
+      .number { color: #aa0; }
+      .string { color: #0b0; }
+      .undefined { color: #999; }
+    </style>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shCore.js"></script><style></style>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shBrushJScript.js"></script>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shBrushXml.js"></script>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shBrushHandlebars.js"></script>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shBrushJScript.js"></script>
+    <script type="text/javascript" src="./Comp 431_ Homework_files/shBrushCss.js"></script>
+    <script type="text/javascript">
+      SyntaxHighlighter.defaults.gutter = false;
+      SyntaxHighlighter.all();
+    </script>
+    <link type="text/css" rel="stylesheet" href="./Comp 431_ Homework_files/shCore.css">
+    <link type="text/css" rel="stylesheet" href="./Comp 431_ Homework_files/shThemeFoust.css">
+    <!--<base target="_top">--><base href="." target="_top">
+  </head>
+  <body>
+    <p>
+      You are to create a TypeScript project.  This will <em>not</em> be an
+      Express application, just a simple Node module.
+    </p>
+    <h3>Project</h3>
+    <p>
+      Here are the requirements for the project.
+    </p>
+    <ol class="spaced">
+      <li>
+        You should create a <code>package.json</code> just as we have done for
+        prior Node projects.
+      </li>
+      <li>
+        You should use <code>lib/hw8.js</code> as the entry point for your
+        project.
+      </li>
+      <li>
+        You should use the <code>tsconfig.json</code> from the notes.  In
+        particular, you should compile the TypeScript files in
+        your <code>src</code> directory into JavaScript files in
+        your <code>lib</code> directory.
+      </li>
+      <li>
+        You should delete both your <code>node_modules</code> and
+        your <code>lib</code> directory before submitting your project.  I
+        will compile your TypeScript myself.
+      </li>
+      <li>
+        Your program will be entirely in one file:  <code>src/hw8.ts</code>.
+      </li>
+    </ol>
+    <h3>Code</h3>
+    <p>
+      You will need to export all the functions, and classes in this
+      assignment so that they will be accessible as properties of your
+      module.  To do this, simply add the keyword <code>export</code> to the
+      front of your function or class declaration.  For example:
+    </p>
+    <div><div id="highlighter_974837" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="https://cs.harding.edu/gfoust/classes/comp431/homework08.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js plain">export </code><code class="js keyword">function</code> <code class="js plain">sayHello() {</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">/* ...code... */</code></div><div class="line number3 index2 alt2"><code class="js plain">}</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="js plain">export </code><code class="js keyword">class</code> <code class="js plain">Circle {</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">/* ...code... */</code></div><div class="line number7 index6 alt2"><code class="js plain">}</code></div></div></td></tr></tbody></table></div></div>
+    <p>
+      You should be able to test your code by compiling it to JavaScript, then
+      loading the JavaScript module in Node.
+    </p>
+    <pre class="console">&gt; hw8 = require("./lib/hw8")
+</pre>
+    <p>
+      Here is the code I want you to write in your <code>src/hw8.ts</code>
+      file.  <strong>You <em>must</em> declare the return type of all non-void
+      functions.  You may <em>not</em> use the <code>any</code> type.</strong>
+    </p>
+    <ol class="spaced">
+      <li>
+        Write a function named <code>sayHello</code>.  This function should
+        take one string parameter: a name.  It should
+        print <code>"Hello, <var>name</var>"</code>, where <var>name</var> is
+        the parameter.  It should not return anything.
+        <pre class="console">&gt; hw8.sayHello("Francine");
+Hello, Francine
+<span class="undefined">undefined</span>
+</pre>
+      </li>
+      <li>
+        Write a function named <code>doubleAll</code>.  This function should
+        take an array of numbers, and should return a new array that is a copy
+        of the original except that each element is doubled.
+        <pre class="console">&gt; hw8.doubleAll([ 4, 3, 1 ]);
+[ <span class="number">8</span>, <span class="number">6</span>, <span class="number">2</span> ]
+</pre>
+      </li>
+      <li>
+        Write a function called <code>mapSum</code>.  This function should
+        take an array of strings, and a function that maps a string to a
+        number.  It should call the function on all of the strings, then
+        return the sum of the result.
+        <pre class="console">&gt; val = { a: 3, b: 7, c: 4 }
+{ a: <span class="number">3</span>, b: <span class="number">7</span>, c: <span class="number">4</span> }
+&gt; hw8.mapSum(["a", "b", "c", "b"], x =&gt; val[x])
+<span class="number">21</span>
+</pre>
+      </li>
+      <li>
+        Write an interface named <code>Location</code>.  The interface should
+        have two properties: <code>x</code> and <code>y</code>, both numbers.
+      </li>
+      <li>
+        Write a class named Circle.  It should have three
+        properties: <code>x</code> (the x-position of the
+        center), <code>y</code> (the y-position of the center),
+        and <code>radius</code>.
+        <ul>
+          <li>The constructor should take one parameter: the initial value of
+            the radius. The x and y coordinates should be set to zero.</li>
+          <li>The <code>location</code> method should return
+            a <code>Location</code> object containing the x and y coordinates
+            of the circle.</li>
+          <li>The <code>area</code> method should return the area of the
+            circle.  Use <code>Math.PI</code> for π.</li>
+          <li>The <code>moveTo</code> method should take one parameters:
+            a <code>Location</code>.  It should adjust the <code>x</code>
+            and <code>y</code> properties so that the circle is located at the
+            parameter.
+          </li>
+        </ul>
+        <pre class="console">&gt; c = new hw8.Circle(10)
+Circle { radius: <span class="number">10</span>, x: <span class="number">0</span>, y: <span class="number">0</span> }
+&gt; c.location()
+{ x: <span class="number">0</span>, y: <span class="number">0</span> }
+&gt; c.area()
+<span class="number">314.1592653589793</span>
+&gt; c.moveTo({ x: 10, y: 20 })
+<span class="undefined">undefined</span>
+&gt; c.location()
+{ x: <span class="number">10</span>, y: <span class="number">20</span> }
+</pre>
+      </li>
+      <li>Write a class named <code>Spaceship</code>.  It should have three
+        properties: <code>x</code> (the x-position of the
+        spaceship), <code>y</code> (the y-position of the spaceship),
+        and <code>hitPoints</code>.
+        <ul>
+          <li>
+            The constructor should take one parameter: a location object.  It
+            should initialize the <code>x</code> and <code>y</code> properties
+            of the spaceship based on the location.  The <code>hitPoints</code>
+            property should be initialized to 100.
+          </li>
+          <li>The <code>location</code> method should return
+            a <code>Location</code> object containing the x and y coordinates
+            of the circle.</li>
+          <li>The <code>damage</code> method should take a number.  It should
+            reduce the spaceship's <code>hitPoints</code> by the specified
+            amount.  It should return the spaceship's new <code>hitPoints</code>
+            value.
+          </li>
+          <li>The <code>moveTo</code> method should take one parameters:
+            a <code>Location</code>.  It should adjust the <code>x</code>
+            and <code>y</code> properties so that the circle is located at the
+            parameter.
+          </li>
+        </ul>
+        <pre class="console">&gt; p = new hw8.Spaceship({ x: 45, y: 55 })
+Spaceship { x: <span class="number">45</span>, y: <span class="number">55</span>, hitPoints: <span class="number">100</span> }
+&gt; p.location()
+{ x: <span class="number">45</span>, y: <span class="number">55</span> }
+&gt; p.damage(10)
+<span class="number">90</span>
+&gt; p.damage(25)
+<span class="number">65</span>
+&gt; p.moveTo({ x: 15, y: -20 })
+<span class="undefined">undefined</span>
+&gt; p.location()
+{ x: <span class="number">15</span>, y: <span class="number">-20</span> }
+</pre>
+      </li>
+      <li>Translate the following function to TypeScript.  The
+        parameters <code>a</code> and <code>b</code> are of
+        type <code>Location</code>.  The parameter <code>n</code> is a number.
+        The function returns either the location that is a distance
+        of <code>n</code> along the path from <code>a</code>
+        to <code>b</code>, or else <code>b</code> if the distance
+        from <code>a</code> to <code>b</code> is less than <code>n</code>.
+        <div><div id="highlighter_507813" class="syntaxhighlighter nogutter  js"><div class="toolbar"><span><a href="https://cs.harding.edu/gfoust/classes/comp431/homework08.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">function</code> <code class="js plain">towards(a, b, n) {</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js keyword">let</code> <code class="js plain">dx = b.x - a.x,</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">dy = b.y - a.y,</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">dist = Math.sqrt(dx*dx + dy*dy);</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js keyword">if</code> <code class="js plain">(dist &lt;= n) {</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">{ x: b.x, y: b.y };</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js keyword">else</code> <code class="js plain">{</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">let</code> <code class="js plain">r = n / dist;</code></div><div class="line number10 index9 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code> <code class="js plain">{</code></div><div class="line number11 index10 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">x: a.x + dx * r,</code></div><div class="line number12 index11 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">y: a.y + dy * r</code></div><div class="line number13 index12 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">};</code></div><div class="line number14 index13 alt1"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">}</code></div><div class="line number15 index14 alt2"><code class="js plain">}</code></div></div></td></tr></tbody></table></div></div>
+        <pre class="console">&gt; hw8.towards({ x: 5, y: 12 }, { x:  5, y: 20 },  3)
+{ x: <span class="number">5</span>, y: <span class="number">15</span> }
+&gt; hw8.towards({ x: 8, y:  1 }, { x: 20, y:  1 },  6)
+{ x: <span class="number">14</span>, y: <span class="number">1</span> }
+&gt; hw8.towards({ x: 0, y:  0 }, { x: 12, y: 16 },  5)
+{ x: <span class="number">3</span>, y: <span class="number">4</span> }
+&gt; hw8.towards({ x: 0, y:  0 }, { x: 12, y: 16 }, 10)
+{ x: <span class="number">6</span>, y: <span class="number">8</span> }
+&gt; hw8.towards({ x: 0, y:  0 }, { x: 12, y: 16 }, 20)
+{ x: <span class="number">12</span>, y: <span class="number">16</span> }
+&gt; hw8.towards({ x: 0, y:  0 }, { x: 12, y: 16 }, 50)
+{ x: <span class="number">12</span>, y: <span class="number">16</span> }
+</pre>
+      </li>
+      <li>
+        Write a function named <code>chase</code>.  The function should take
+        two parameters.  The first is a <code>Location</code>.  The second is
+        an array of things that have both a <code>location</code> and
+        a <code>moveTo</code> method (as both <code>Circle</code>
+        and <code>Spaceship</code> do).  The function should move all objects
+        in the array a distance of 1 towards the location.
+        <p>
+          You should define an interface for your function; make sure it works
+          with both <code>Circle</code>s and <code>Spaceship</code>s.
+        </p>
+        <pre class="console">&gt; c1 = new hw8.Circle(10)
+Circle { radius: <span class="number">10</span>, x: <span class="number">0</span>, y: <span class="number">0</span> }
+&gt; c2 = new hw8.Circle(15)
+Circle { radius: <span class="number">15</span>, x: <span class="number">0</span>, y: <span class="number">0</span> }
+&gt; c2.moveTo({ x: 0, y: 10 })
+<span class="undefined">undefined</span>
+&gt; s1 = new hw8.Spaceship({ x: 8, y: 4 })
+Spaceship { x: <span class="number">8</span>, y: <span class="number">4</span>, hitPoints: <span class="number">100</span> }
+&gt; hw8.chase({ x: 0, y: 4 }, [ c1, c2, s1 ])
+<span class="undefined">undefined</span>
+&gt; c1.location()
+{ x: <span class="number">0</span>, y: <span class="number">1</span> }
+&gt; c2.location()
+{ x: <span class="number">0</span>, y: <span class="number">9</span> }
+&gt; s1.location()
+{ x: <span class="number">7</span>, y: <span class="number">4</span> }
+&gt; hw8.chase({ x: 0, y: 4 }, [ c1, c2, s1 ])
+<span class="undefined">undefined</span>
+&gt; c1.location()
+{ x: <span class="number">0</span>, y: <span class="number">2</span> }
+&gt; c2.location()
+{ x: <span class="number">0</span>, y: <span class="number">8</span> }
+&gt; s1.location()
+{ x: <span class="number">6</span>, y: <span class="number">4</span> }
+&gt; hw8.chase({ x: 10, y: 10 }, [ c1, c2, s1 ])
+<span class="undefined">undefined</span>
+&gt; c1.location()
+{ x: <span class="number">0.7808688094430304</span>, y: <span class="number">2.6246950475544244</span> }
+&gt; c2.location()
+{ x: <span class="number">0.9805806756909202</span>, y: <span class="number">8.196116135138183</span> }
+&gt; s1.location()
+{ x: <span class="number">6.554700196225229</span>, y: <span class="number">4.832050294337844</span> }
+</pre>
+      </li>
+    </ol>
+  
+
+</body></html>
