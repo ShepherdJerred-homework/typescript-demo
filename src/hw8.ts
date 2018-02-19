@@ -29,14 +29,66 @@ export class Circle {
   }
 
   location (): Location {
-
+    return {
+      x: this.x,
+      y: this.y
+    };
   }
 
   area (): number {
-
+    return Math.PI * (this.radius * 2);
   }
 
-  moveTo(location: Location) {
-
+  moveTo (location: Location) {
+    this.x = location.x;
+    this.y = location.y;
   }
+}
+
+export class Spaceship {
+  x: number;
+  y: number;
+  hitpoints: number;
+
+  constructor (x: number, y: number) {
+    this.x = x;
+    this.y = y;
+    this.hitpoints = 100;
+  }
+
+  location (): Location {
+    return {
+      x: this.x,
+      y: this.y
+    };
+  }
+
+  damage (amountToDamage: number): number {
+    this.hitpoints -= amountToDamage;
+    return this.hitpoints;
+  }
+
+  moveTo (location: Location) {
+    this.x = location.x;
+    this.y = location.y;
+  }
+}
+
+export function towards (a: Location, b: Location, n: number): Location {
+  let dx: number = b.x - a.x;
+  let dy: number = b.y - a.y;
+  let dist: number = Math.sqrt(dx * dx + dy * dy);
+  if (dist <= n) {
+    return { x: b.x, y: b.y };
+  } else {
+    let r = n / dist;
+    return {
+      x: a.x + dx * r,
+      y: a.y + dy * r
+    };
+  }
+}
+
+export function chase(location: Location, locations: Location[]) {
+  return null;
 }
