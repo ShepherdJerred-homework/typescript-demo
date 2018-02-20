@@ -39,7 +39,7 @@ export class Circle {
   }
 
   area (): number {
-    return Math.PI * (this.radius * 2);
+    return Math.PI * (this.radius * this.radius);
   }
 
   moveTo (location: Location) {
@@ -95,29 +95,3 @@ export function towards (a: Location, b: Location, n: number): Location {
 /*export function chase(location: Location, locations: Location[]) {
   return null;
 }*/
-
-function test () {
-  sayHello('Francine');
-  doubleAll([ 4, 3, 1 ]);
-  let val = { a: 3, b: 7, c: 4 };
-  mapSum(['a', 'b', 'c', 'b'], x => val[x]);
-  let c: Circle = new Circle(10);
-  c.location();
-  c.area();
-  c.moveTo({ x: 10, y: 20 });
-  c.location();
-  let p = new Spaceship({ x: 45, y: 55 });
-  p.location();
-  p.damage(10);
-  p.damage(25);
-  p.moveTo({ x: 15, y: -20 });
-  p.location();
-  towards({ x: 5, y: 12 }, { x:  5, y: 20 },3);
-  towards({ x: 8, y:  1 }, { x: 20, y:  1 },6);
-  towards({ x: 0, y:  0 }, { x: 12, y: 16 },5);
-  towards({ x: 0, y:  0 }, { x: 12, y: 16 },10);
-  towards({ x: 0, y:  0 }, { x: 12, y: 16 },20);
-  towards({ x: 0, y:  0 }, { x: 12, y: 16 },50);
-}
-
-test();
