@@ -15,12 +15,17 @@ export function mapSum (a: string[], f: (s: string) => number): number {
   return a.reduce(add, 0);
 }
 
+export interface Moveable {
+  location (): Location;
+  moveTo (location: Location);
+}
+
 export interface Location {
   x: number;
   y: number;
 }
 
-export class Circle {
+export class Circle implements Moveable {
   x: number;
   y: number;
   radius: number;
@@ -48,7 +53,7 @@ export class Circle {
   }
 }
 
-export class Spaceship {
+export class Spaceship implements Moveable {
   x: number;
   y: number;
   hitpoints: number;
@@ -92,6 +97,8 @@ export function towards (a: Location, b: Location, n: number): Location {
   }
 }
 
-/*export function chase(location: Location, locations: Location[]) {
-  return null;
-}*/
+export function chase (location: Location, movables: Moveable[]) {
+  movables.forEach(moveable => {
+    moveable.moveTo(towards(moveable.location(), location, 1));
+  });
+}
