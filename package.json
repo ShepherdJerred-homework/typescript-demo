@@ -9,7 +9,7 @@
     "watch": "tsc -w -p tsconfig.json",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
     "pretest": "npm run lint",
-    "test": "npm run build && mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
