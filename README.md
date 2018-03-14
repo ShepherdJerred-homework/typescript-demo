@@ -1,1 +1,1 @@
-# typescript-demo
+# typescript-practice
