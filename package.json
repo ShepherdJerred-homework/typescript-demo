@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShepherdJerred-homework/typescript-demo.git"
+    "url": "git+https://github.com/ShepherdJerred-homework/typescript-practice.git"
   },
   "author": "Jerred Shepherd",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ShepherdJerred-homework/typescript-demo/issues"
+    "url": "https://github.com/ShepherdJerred-homework/typescript-practice/issues"
   },
-  "homepage": "https://github.com/ShepherdJerred-homework/typescript-demo#readme",
+  "homepage": "https://github.com/ShepherdJerred-homework/typescript-practice#readme",
   "dependencies": {
     "@types/node": "^9.4.6",
     "tslib": "^1.9.0",
